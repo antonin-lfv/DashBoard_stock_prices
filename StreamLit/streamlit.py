@@ -72,7 +72,6 @@ df4 = SP[slider_4]
 # choix fenetre
 fenetre = st.sidebar.slider('Saisir une fenêtre (jours)', min_value=0,max_value=len(df1['Close']), value=50)
 
-
 st.title('Cours des actions de '+slider_1+', '+slider_2+', '+slider_3+', '+slider_4+' sur une fenêtre de '+str(fenetre)+' jours\n')
 ###############################################################
 
