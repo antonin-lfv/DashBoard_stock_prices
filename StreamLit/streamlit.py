@@ -5,20 +5,12 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit as st
 
-with open("/Users/antoninlefevre/Downloads/langages_informatiques/Python/Blog - MachineLearnia/Blog_site/StreamLit/style.css") as f:
-    st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
+# streamlit run StreamLit/streamlit.py
 
 # À SAISIR :
 ###############################################################
 start = "2020-05-25" # début des graphiques                   #
-fenetre = 87  # jours pris en comptent à partir d'aujourd'hui#
 ###############################################################
-# STREAMLIT :
-###############################################################
-st.title("Cours des actions de Apple, Microsoft, Intel et Tesla - fenêtre de {} jours\n".format(fenetre))
-###############################################################
-
-
 
 today = date.today()+ datetime.timedelta(days=1)
 d1 = today.strftime("%Y-%m-%d")
@@ -32,6 +24,53 @@ INTC = yf.download("INTC", start=start, end="{}".format(d1))
 INTC['Date']=INTC.index
 TSLA = yf.download("TSLA", start=start, end="{}".format(d1))
 TSLA['Date']=TSLA.index
+EUR = yf.download("EUR", start=start, end="{}".format(d1))
+EUR['Date']=EUR.index
+GOOG = yf.download("GOOG", start=start, end="{}".format(d1))
+GOOG['Date']=GOOG.index
+NTDOY = yf.download("NTDOY", start=start, end="{}".format(d1))
+NTDOY['Date']=NTDOY.index
+
+SP = {
+    'Apple': AAPL,
+    'Microsoft':MSFT,
+    'Intel':INTC,
+    'Tesla':TSLA,
+    'Euro':EUR,
+    'Google':GOOG,
+    'Nintendo':NTDOY,
+}
+
+# STREAMLIT :
+###############################################################
+# selectbox à gauche :
+slider_1 = st.sidebar.selectbox(
+    'Choisissez un 1er cours',
+    ('Apple', 'Microsoft', 'Intel', 'Tesla', 'Euro', 'Google', 'Nintendo'),
+)
+
+slider_2 = st.sidebar.selectbox(
+    'Choisissez un 2e cours',
+    ('Microsoft', 'Apple', 'Intel', 'Tesla', 'Euro', 'Google', 'Nintendo')
+)
+
+slider_3 = st.sidebar.selectbox(
+    'Choisissez un 3er cours',
+    ('Intel', 'Apple', 'Microsoft', 'Tesla', 'Euro', 'Google', 'Nintendo')
+)
+
+slider_4 = st.sidebar.selectbox(
+    'Choisissez un 4e cours',
+    ('Tesla', 'Apple', 'Microsoft', 'Intel', 'Euro', 'Google', 'Nintendo')
+)
+
+# choix fenetre
+fenetre = st.sidebar.slider('Saisir une fenêtre', min_value=0,max_value=len(AAPL['Close']), value=50)
+
+
+st.title('Cours des actions de '+slider_1+', '+slider_2+', '+slider_3+', '+slider_4+' sur une fenêtre de '+str(fenetre)+' jours\n')
+###############################################################
+
 
 vert = '#599673'
 rouge = '#e95142'
@@ -43,7 +82,7 @@ fig = make_subplots(rows=4, cols=2,
                            [{'type':'xy'},{'type':'indicator'}]],
                     column_widths=[0.85, 0.15],
                     shared_xaxes=True,
-                    subplot_titles=['APPLE', '', 'Microsoft', '','INTEL', '','Tesla',''])
+                    subplot_titles=[slider_1, '', slider_2, '',slider_3, '',slider_4,''])
 
 # courbes #####################
 
@@ -52,81 +91,85 @@ def couleur(df):
         return vert
     else : return rouge
 
+df1 = SP[slider_1]
+df2 = SP[slider_2]
+df3 = SP[slider_3]
+df4 = SP[slider_4]
 
 fig.add_trace(go.Scatter(
-    y = AAPL['Close'],
-    x = AAPL['Date'],
-    line=dict(color=couleur(AAPL), width=1),
+    y = df1['Close'],
+    x = df1['Date'],
+    line=dict(color=couleur(df1), width=1),
     name="",
     hovertemplate=
     "Date: %{x}<br>" +
     "Close: %{y}<br>"+
     "Volume: %{text}<br>",
-    text = AAPL.Volume,
+    text = df1.Volume,
 ), row=1, col=1)
 
 fig.add_trace(go.Scatter(
-    y = MSFT['Close'],
-    x = MSFT['Date'],
-    line=dict(color=couleur(MSFT), width=1),
+    y = df2['Close'],
+    x = df2['Date'],
+    line=dict(color=couleur(df2), width=1),
     name="",
     hovertemplate=
     "Date: %{x}<br>" +
     "Close: %{y}<br>"+
     "Volume: %{text}<br>",
-    text = MSFT.Volume,
+    text = df2.Volume,
 ), row=2, col=1)
 
 fig.add_trace(go.Scatter(
-    y = INTC['Close'],
-    x = INTC['Date'],
-    line=dict(color=couleur(INTC), width=1),
+    y = df3['Close'],
+    x = df3['Date'],
+    line=dict(color=couleur(df3), width=1),
     name="",
     hovertemplate=
     "Date: %{x}<br>" +
     "Close: %{y}<br>"+
     "Volume: %{text}<br>",
-    text = INTC.Volume,
+    text = df3.Volume,
 ), row=3, col=1)
 
 
 fig.add_trace(go.Scatter(
-    y = TSLA['Close'],
-    x = TSLA['Date'],
-    line=dict(color=couleur(TSLA), width=1),
+    y = df4['Close'],
+    x = df4['Date'],
+    line=dict(color=couleur(df4), width=1),
     name="",
     hovertemplate=
     "Date: %{x}<br>" +
     "Close: %{y}<br>"+
     "Volume: %{text}<br>",
-    text = TSLA.Volume,
+    text = df4.Volume,
 ), row=4, col=1)
 
 
-fig.add_hline(y=AAPL['Close'].iloc[0],
+fig.add_hline(y=df1['Close'].iloc[0],
               line_dash="dot",
-              annotation_text="{}".format(AAPL['Date'][0].date()),
+              annotation_text="{}".format(df1['Date'][0].date()),
               annotation_position="bottom left",
               line_width=2, line=dict(color='black'),
               annotation=dict(font_size=10),
               row=1, col=1)
-fig.add_hline(y=MSFT['Close'].iloc[0],
+fig.add_hline(y=df2['Close'].iloc[0],
               line_dash="dot",
-              annotation_text="{}".format(MSFT['Date'][0].date()),
+              annotation_text="{}".format(df2['Date'][0].date()),
               annotation_position="bottom left",
               line_width=2, line=dict(color='black'),
               annotation=dict(font_size=10),
               row=2, col=1)
-fig.add_hline(y=INTC['Close'].iloc[0],
+fig.add_hline(y=df3['Close'].iloc[0],
               line_dash="dot",
-              annotation_text="{}".format(INTC['Date'][0].date()),
+              annotation_text="{}".format(df3['Date'][0].date()),
               annotation_position="bottom left",
               line_width=2, line=dict(color='black'),
               annotation=dict(font_size=10),
               row=3, col=1)
-fig.add_hline(y=TSLA['Close'].iloc[0],
+fig.add_hline(y=df4['Close'].iloc[0],
               line_dash="dot",
-              annotation_text="{}".format(TSLA['Date'][0].date()),
+              annotation_text="{}".format(df4['Date'][0].date()),
               annotation_position="bottom left",
               line_width=2, line=dict(color='black'),
               annotation=dict(font_size=10),
@@ -136,37 +179,37 @@ fig.add_hline(y=TSLA['Close'].iloc[0],
 
 fig.add_trace(go.Indicator(
     mode = "number+delta",
-    value = round(AAPL['Close'].iloc[-1],4),
+    value = round(df1['Close'].iloc[-1],4),
     number={'prefix': "$", 'font_size' : 40},
-    delta = {"reference": AAPL['Close'].iloc[-1*fenetre], "valueformat": ".6f", "position" : "bottom", "relative":False},
-    title = {"text": "Apple Since {}-days".format(fenetre)},
+    delta = {"reference": df1['Close'].iloc[-1*fenetre], "valueformat": ".6f", "position" : "bottom", "relative":False},
+    title = {"text": slider_1+" Since {}-days".format(fenetre)},
     domain = {'y': [0.5, 0.7], 'x': [0.55, 0.75]}),
 row=1, col=2)
 
 fig.add_trace(go.Indicator(
     mode = "number+delta",
-    value = round(MSFT['Close'].iloc[-1],4),
+    value = round(df2['Close'].iloc[-1],4),
     number={'prefix': "$", 'font_size' : 40},
-    delta = {"reference": MSFT['Close'].iloc[-1*fenetre], "valueformat": ".6f", "position" : "bottom", "relative":False},
-    title = {"text": "Microsoft Since {}-days".format(fenetre)},
+    delta = {"reference": df2['Close'].iloc[-1*fenetre], "valueformat": ".6f", "position" : "bottom", "relative":False},
+    title = {"text": slider_2+" Since {}-days".format(fenetre)},
     domain = {'y': [0.5, 0.7], 'x': [0.55, 0.75]}),
 row=2, col=2)
 
 fig.add_trace(go.Indicator(
     mode = "number+delta",
-    value = round(INTC['Close'].iloc[-1],4),
+    value = round(df3['Close'].iloc[-1],4),
     number={'prefix': "$", 'font_size' : 40},
-    delta = {"reference": INTC['Close'].iloc[-1*fenetre], "valueformat": ".6f", "position" : "bottom", "relative":False},
-    title = {"text": "Intel Since {}-days".format(fenetre)},
+    delta = {"reference": df3['Close'].iloc[-1*fenetre], "valueformat": ".6f", "position" : "bottom", "relative":False},
+    title = {"text": slider_3+" Since {}-days".format(fenetre)},
     domain = {'y': [0.5, 0.7], 'x': [0.55, 0.75]}),
 row=3, col=2)
 
 fig.add_trace(go.Indicator(
     mode = "number+delta",
-    value = round(TSLA['Close'].iloc[-1],4),
+    value = round(df4['Close'].iloc[-1],4),
     number={'prefix': "$", 'font_size' : 40},
-    delta = {"reference": TSLA['Close'].iloc[-1*fenetre], "valueformat": ".6f", "position" : "bottom", "relative":False},
-    title = {"text": "Tesla Since {}-days".format(fenetre)},
+    delta = {"reference": df4['Close'].iloc[-1*fenetre], "valueformat": ".6f", "position" : "bottom", "relative":False},
+    title = {"text": slider_4+" Since {}-days".format(fenetre)},
     domain = {'y': [0.5, 0.7], 'x': [0.55, 0.75]}),
     row=4, col=2)
 
@@ -175,30 +218,30 @@ fig.add_trace(go.Indicator(
 if fenetre > 1 :
     fig.add_shape(type="rect",
                   xref="x", yref="y",
-                  x0=AAPL['Date'].iloc[-1*fenetre].date().strftime('%Y-%m-%d'), y0=AAPL['Close'].min(),
-                  x1=d1, y1=AAPL['Close'].max(),
-                  fillcolor=couleur(AAPL),
+                  x0=df1['Date'].iloc[-1*fenetre].date().strftime('%Y-%m-%d'), y0=df1['Close'].min(),
+                  x1=d1, y1=df1['Close'].max(),
+                  fillcolor=couleur(df1),
                   row=1, col=1
                   )
     fig.add_shape(type="rect",
                   xref="x", yref="y",
-                  x0=MSFT['Date'].iloc[-1*fenetre].date().strftime('%Y-%m-%d'), y0=MSFT['Close'].min(),
-                  x1=d1, y1=MSFT['Close'].max(),
-                  fillcolor=couleur(MSFT),
+                  x0=df2['Date'].iloc[-1*fenetre].date().strftime('%Y-%m-%d'), y0=df2['Close'].min(),
+                  x1=d1, y1=df2['Close'].max(),
+                  fillcolor=couleur(df2),
                   row=2, col=1
                   )
     fig.add_shape(type="rect",
                   xref="x", yref="y",
-                  x0=INTC['Date'].iloc[-1*fenetre].date().strftime('%Y-%m-%d'), y0=INTC['Close'].min(),
-                  x1=d1, y1=INTC['Close'].max(),
-                  fillcolor=couleur(INTC),
+                  x0=df3['Date'].iloc[-1*fenetre].date().strftime('%Y-%m-%d'), y0=df3['Close'].min(),
+                  x1=d1, y1=df3['Close'].max(),
+                  fillcolor=couleur(df3),
                   row=3, col=1
                   )
     fig.add_shape(type="rect",
                   xref="x", yref="y",
-                  x0=TSLA['Date'].iloc[-1*fenetre].date().strftime('%Y-%m-%d'), y0=TSLA['Close'].min(),
-                  x1=d1, y1=TSLA['Close'].max(),
-                  fillcolor=couleur(TSLA),
+                  x0=df4['Date'].iloc[-1*fenetre].date().strftime('%Y-%m-%d'), y0=df4['Close'].min(),
+                  x1=d1, y1=df4['Close'].max(),
+                  fillcolor=couleur(df4),
                   row=4, col=1
                   )
 
@@ -212,7 +255,10 @@ fig.update_layout(
     width=1500, height=1000,
     margin=dict(l=40, r=800, b=40, t=40),
     paper_bgcolor='rgba(0,0,0,0)',
-    plot_bgcolor='rgba(0,0,0,0)'
+    plot_bgcolor='rgba(0,0,0,0)',
+    xaxis_showticklabels=True,
+    xaxis2_showticklabels = True,
+    xaxis3_showticklabels=True,
 )
 
 st.plotly_chart(fig)
