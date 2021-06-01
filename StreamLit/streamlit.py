@@ -24,8 +24,8 @@ INTC = yf.download("INTC", start=start, end="{}".format(d1))
 INTC['Date']=INTC.index
 TSLA = yf.download("TSLA", start=start, end="{}".format(d1))
 TSLA['Date']=TSLA.index
-EUR = yf.download("EUR", start=start, end="{}".format(d1))
-EUR['Date']=EUR.index
+GOLD = yf.download("GC=F", start=start, end="{}".format(d1))
+GOLD['Date']=GOLD.index
 GOOG = yf.download("GOOG", start=start, end="{}".format(d1))
 GOOG['Date']=GOOG.index
 NTDOY = yf.download("NTDOY", start=start, end="{}".format(d1))
@@ -36,7 +36,7 @@ SP = {
     'Microsoft':MSFT,
     'Intel':INTC,
     'Tesla':TSLA,
-    'Euro':EUR,
+    'Gold':GOLD,
     'Google':GOOG,
     'Nintendo':NTDOY,
 }
@@ -46,26 +46,31 @@ SP = {
 # selectbox à gauche :
 slider_1 = st.sidebar.selectbox(
     'Choisissez un 1er cours',
-    ('Apple', 'Microsoft', 'Intel', 'Tesla', 'Euro', 'Google', 'Nintendo'),
+    ('Apple', 'Microsoft', 'Intel', 'Tesla', 'Gold', 'Google', 'Nintendo'),
 )
 
 slider_2 = st.sidebar.selectbox(
     'Choisissez un 2e cours',
-    ('Microsoft', 'Apple', 'Intel', 'Tesla', 'Euro', 'Google', 'Nintendo')
+    ('Microsoft', 'Apple', 'Intel', 'Tesla', 'Gold', 'Google', 'Nintendo')
 )
 
 slider_3 = st.sidebar.selectbox(
     'Choisissez un 3er cours',
-    ('Intel', 'Apple', 'Microsoft', 'Tesla', 'Euro', 'Google', 'Nintendo')
+    ('Intel', 'Apple', 'Microsoft', 'Tesla', 'Gold', 'Google', 'Nintendo')
 )
 
 slider_4 = st.sidebar.selectbox(
     'Choisissez un 4e cours',
-    ('Tesla', 'Apple', 'Microsoft', 'Intel', 'Euro', 'Google', 'Nintendo')
+    ('Tesla', 'Apple', 'Microsoft', 'Intel', 'Gold', 'Google', 'Nintendo')
 )
 
+df1 = SP[slider_1]
+df2 = SP[slider_2]
+df3 = SP[slider_3]
+df4 = SP[slider_4]
+
 # choix fenetre
-fenetre = st.sidebar.slider('Saisir une fenêtre', min_value=0,max_value=len(AAPL['Close']), value=50)
+fenetre = st.sidebar.slider('Saisir une fenêtre', min_value=0,max_value=len(df1['Close']), value=50)
 
 
 st.title('Cours des actions de '+slider_1+', '+slider_2+', '+slider_3+', '+slider_4+' sur une fenêtre de '+str(fenetre)+' jours\n')
@@ -90,11 +95,6 @@ def couleur(df):
     if df['Close'].iloc[-1*fenetre]-df['Close'].iloc[-1] < 0 :
         return vert
     else : return rouge
-
-df1 = SP[slider_1]
-df2 = SP[slider_2]
-df3 = SP[slider_3]
-df4 = SP[slider_4]
 
 fig.add_trace(go.Scatter(
     y = df1['Close'],
