@@ -1,2 +1,1 @@
-# app_stock_prices
-Real time stock prices with Streamlit and Plotly
+<h1 align="center">Cours de la bourse en temps réel</h1>
