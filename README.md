@@ -2,7 +2,7 @@
 
 <br/>
 
-<p text-align="center">
+<p align="center">
      
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/antonin-lfv/app_stock_prices/main/StreamLit/streamlit.py)
      </p>
