@@ -4,7 +4,7 @@
 
 <p align="center">
      
-<a href="https://share.streamlit.io/antonin-lfv/app_stock_prices/main/StreamLit/streamlit.py"><img src=https://static.streamlit.io/badges/streamlit_badge_black_white.svg/></a>
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/yourGitHubName/yourRepo/yourApp/)
      </p>
 
 <br/>
