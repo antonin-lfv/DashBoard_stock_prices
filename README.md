@@ -20,6 +20,7 @@ Pour lancer le script il faut taper dans le cmd **'streamlit run path_file/strea
 L'app est réalisée avec StreamLit et Plotly :
 
 <br/>
+<br/>
 
 <img width="1440" alt="Capture d’écran 2021-06-02 à 12 00 01" src="https://user-images.githubusercontent.com/63207451/120461182-13d46a80-c39a-11eb-98d1-b24a046b590b.png">
 
