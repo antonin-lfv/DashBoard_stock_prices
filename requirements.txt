@@ -1,1 +1,1 @@
-python pip3 install yfinance, plotly.graph_objects, plotly.subplots, streamlit
+pip3 install yfinance, plotly.graph_objects, plotly.subplots, streamlit
