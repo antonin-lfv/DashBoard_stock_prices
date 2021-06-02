@@ -1,4 +1,6 @@
-![kisspng-chart-stock-market-finance-icon-blue-stock-market-analysis-chart-5a7a96c114fd18 912316311517983425086](https://user-images.githubusercontent.com/63207451/120532141-a814f080-c3df-11eb-9aac-f342eaf20a44.png)
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/63207451/120532141-a814f080-c3df-11eb-9aac-f342eaf20a44.png" height="80">
+	<p/>
 
 <h1 align="center">Cours de la bourse en temps réel</h1>
 
