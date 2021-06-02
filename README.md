@@ -6,8 +6,6 @@
      
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/antonin-lfv/app_stock_prices/main/StreamLit/streamlit.py)
      <p/>
-
-<br/>
      
    Ce projet conciste en la création d'un dashboard qui récupère en temps réel les cours des actions de différentes entreprises et devises. On peut empiler 4 courbes à la fois sur 4 lignes, et selectionner une fenêtre pour savoir si sur cette période le cours a diminué ou non, et de combien.
 Pour lancer le script il faut taper dans le cmd **'streamlit run path_file/streamlit.py'**. <br/>
@@ -21,7 +19,12 @@ L'app est réalisée avec StreamLit et Plotly :
 
 <br/>
 
+Pour accéder au DashBoard c'est ici -> [DashBoard](https://share.streamlit.io/antonin-lfv/app_stock_prices/main/StreamLit/streamlit.py)
+
 <br/>
+
+Le fichier __config.toml__ du dossier .streamlit contient les éléments du thème de l'application telles que la couleur du fond, et la couleur des boutons. Le fichier requirements.txt contient les packages python non natif, tel que Plotly.
+Pour mettre en ligne le dashboard il faut mettre tous ces fichiers dans un repo GitHub public, et avoir un compte validé sur [streamlit](https://streamlit.io).
 
 <br/>
 
