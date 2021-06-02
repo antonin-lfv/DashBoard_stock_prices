@@ -1,6 +1,9 @@
 <h1 align="center">Cours de la bourse en temps réel</h1>
 
 <br/>
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://github.com/antonin-lfv/app_stock_prices)
+
 <br/>
      
    Ce projet conciste en la création d'un dashboard qui récupère en temps réel les cours des actions de différentes entreprises et devises. On peut empiler 4 courbes à la fois sur 4 lignes, et selectionner une fenêtre pour savoir si sur cette période le cours a diminué ou non, et de combien.
