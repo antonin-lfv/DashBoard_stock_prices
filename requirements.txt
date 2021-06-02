@@ -1,3 +1,2 @@
 yfinance
-plotly.graph_objects==4.14.3
-plotly.subplots==4.14.3
+plotly
