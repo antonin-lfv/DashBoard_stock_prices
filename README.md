@@ -11,7 +11,7 @@ L'app est réalisée avec StreamLit et Plotly :
 
 <br/>
 
-<img width="1440" alt="Capture d’écran 2021-06-01 à 13 49 02" src="https://user-images.githubusercontent.com/63207451/120318431-238f7880-c2e0-11eb-86b1-ceaf8b5f490b.png">
+<img width="1440" alt="Capture d’écran 2021-06-02 à 12 00 01" src="https://user-images.githubusercontent.com/63207451/120461182-13d46a80-c39a-11eb-98d1-b24a046b590b.png">
 
 <br/>
 
