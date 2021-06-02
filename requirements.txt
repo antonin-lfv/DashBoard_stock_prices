@@ -1,4 +1,4 @@
-python -m pip yfinance
-python -m pip plotly.graph_objects
-python -m pip plotly.subplots
-python -m pip streamlit
+yfinance
+plotly.graph_objects
+plotly.subplots
+streamlit
