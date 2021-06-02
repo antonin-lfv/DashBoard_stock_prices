@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit as st
 
+st.set_page_config(layout="wide", )
 # streamlit run StreamLit/streamlit.py
 
 # À SAISIR :
@@ -32,7 +33,7 @@ NTDOY = yf.download("NTDOY", start=start, end="{}".format(d1))
 NTDOY['Date']=NTDOY.index
 
 SP = {
-    'Apple': AAPL,
+    'Apple':AAPL,
     'Microsoft':MSFT,
     'Intel':INTC,
     'Tesla':TSLA,
@@ -71,10 +72,8 @@ df4 = SP[slider_4]
 
 # choix fenetre
 fenetre = st.sidebar.slider('Saisir une fenêtre (jours)', min_value=2,max_value=len(df1['Close']), value=50)
-
 st.title('Cours des actions de '+slider_1+', '+slider_2+', '+slider_3+', '+slider_4+' sur une fenêtre de '+str(fenetre)+' jours\n')
 ###############################################################
-
 
 vert = '#599673'
 rouge = '#e95142'
@@ -251,8 +250,8 @@ fig.update_layout(
     showlegend=False,
     font=dict(size=10),
     autosize=False,
-    width=1500, height=1000,
-    margin=dict(l=40, r=800, b=40, t=40),
+    width=1400, height=1000,
+    margin=dict(l=40, r=500, b=40, t=40),
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(0,0,0,0)',
     xaxis_showticklabels=True,
