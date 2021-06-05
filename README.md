@@ -1,3 +1,7 @@
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/63207451/120532141-a814f080-c3df-11eb-9aac-f342eaf20a44.png" height="80">
+	<p/>
+
 <h1 align="center">Cours de la bourse en temps réel</h1>
 
 <br/>
@@ -6,22 +10,53 @@
      
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/antonin-lfv/app_stock_prices/main/StreamLit/streamlit.py)
      <p/>
-
-<br/>
      
+<p align="center">
+	
    Ce projet conciste en la création d'un dashboard qui récupère en temps réel les cours des actions de différentes entreprises et devises. On peut empiler 4 courbes à la fois sur 4 lignes, et selectionner une fenêtre pour savoir si sur cette période le cours a diminué ou non, et de combien.
 Pour lancer le script il faut taper dans le cmd **'streamlit run path_file/streamlit.py'**. <br/>
+     <p/>
+     
 L'app est réalisée avec StreamLit et Plotly :
 
 <br/>
-
 <br/>
 
 <img width="1440" alt="Capture d’écran 2021-06-02 à 12 00 01" src="https://user-images.githubusercontent.com/63207451/120461182-13d46a80-c39a-11eb-98d1-b24a046b590b.png">
 
 <br/>
 
+Pour accéder au DashBoard c'est ici -> [DashBoard](https://share.streamlit.io/antonin-lfv/app_stock_prices/main/StreamLit/streamlit.py)
+
 <br/>
+
+# Configuration
+
+<br/>
+
+Le fichier __config.toml__ du dossier __.streamlit__ contient les éléments du thème de l'application telles que la couleur du fond, et la couleur des boutons. <br/>
+exemple :
+```txt
+[theme]
+backgroundColor="#FFF"
+font="sans serif"
+```
+
+<br/>
+
+Le fichier __requirements.txt__ contient les packages python non natif, tel que Plotly. <br/>
+exemple :
+```txt
+yfinance
+plotly
+sklearn
+```
+
+<br/>
+
+Pour mettre en ligne le dashboard il faut mettre tous ces fichiers dans un repo GitHub public, et avoir un compte validé sur [streamlit](https://streamlit.io). A partir de là la configuration est faite automatiquement :
+
+![Capture d’écran 2021-06-02 à 20 13 44](https://user-images.githubusercontent.com/63207451/120531546-09888f80-c3df-11eb-81a8-93883337b424.png)
 
 <br/>
 
