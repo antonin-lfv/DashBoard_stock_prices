@@ -79,10 +79,7 @@ vert = '#599673'
 rouge = '#e95142'
 
 fig = make_subplots(rows=4, cols=2,
-                    specs=[[{'type': 'xy'},{'type':'indicator'}],
-                           [{'type':'xy'},{'type':'indicator'}],
-                           [{'type':'xy'},{'type':'indicator'}],
-                           [{'type':'xy'},{'type':'indicator'}]],
+                    specs=[[{'type': 'xy'},{'type':'indicator'}] for i in range (4)],
                     column_widths=[0.85, 0.15],
                     shared_xaxes=True,
                     subplot_titles=[slider_1, '', slider_2, '',slider_3, '',slider_4,''])
@@ -211,7 +208,7 @@ fig.add_trace(go.Indicator(
     domain = {'y': [0.5, 0.7], 'x': [0.55, 0.75]}),
     row=4, col=2)
 
-# Rectangle des i (fenetre) derniers jours
+# Rectangle des i (fenetre) derniers jours + moyenne
 
 if fenetre > 1 :
     fig.add_shape(type="rect",
@@ -221,6 +218,7 @@ if fenetre > 1 :
                   fillcolor=couleur(df1),
                   row=1, col=1
                   )
+
     fig.add_shape(type="rect",
                   xref="x", yref="y",
                   x0=df2['Date'].iloc[-1*fenetre].date().strftime('%Y-%m-%d'), y0=df2['Close'].min(),
