@@ -8,6 +8,7 @@ import streamlit as st
 st.set_page_config(layout="wide", )
 # streamlit run StreamLit/streamlit.py
 
+
 # À SAISIR :
 ###############################################################
 start = "2020-05-25" # début des graphiques                   #
@@ -71,7 +72,7 @@ df3 = SP[slider_3]
 df4 = SP[slider_4]
 
 # choix fenetre
-fenetre = st.sidebar.slider('Saisir une fenêtre (jours)', min_value=2,max_value=len(df1['Close']), value=50)
+fenetre = st.sidebar.slider('Saisir une fenêtre (jours)', min_value=2,max_value=min([len(df1['Close']), len(df2['close']), len(df3['close']), len(df4['close'])]), value=50)
 st.title('Cours des actions de '+slider_1+', '+slider_2+', '+slider_3+', '+slider_4+' sur une fenêtre de '+str(fenetre)+' jours\n')
 ###############################################################
 
