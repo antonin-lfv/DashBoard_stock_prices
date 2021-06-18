@@ -8,7 +8,7 @@
 
 <p align="center">
      
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/antonin-lfv/app_stock_prices/main/StreamLit/streamlit.py)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/antonin-lfv/dashboard_stock_prices/main/StreamLit/streamlit.py)
      <p/>
      
 <p align="center">
