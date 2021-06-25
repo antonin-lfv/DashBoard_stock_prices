@@ -7,8 +7,8 @@
 <br/>
 
 <p align="center">
-     
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/antonin-lfv/dashboard_stock_prices/main/StreamLit/streamlit.py)
+
+	  <a href="https://share.streamlit.io/antonin-lfv/dashboard_stock_prices/main/StreamLit/streamlit.py"><img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg"/></a>
      <p/>
      
 <p align="center">
@@ -16,9 +16,12 @@
    Ce projet conciste en la création d'un dashboard qui récupère en temps réel les cours des actions de différentes entreprises et devises. On peut empiler 4 courbes à la fois sur 4 lignes, et selectionner une fenêtre pour savoir si sur cette période le cours a diminué ou non, et de combien.
 Pour lancer le script il faut taper dans le cmd **'streamlit run path_file/streamlit.py'**. <br/>
      <p/>
-
+     
+<br/>
 > Ce projet est apparu dans les [recommandations de la semaine](https://discuss.streamlit.io/t/weekly-roundup-dbt-dashboards-instagram-profile-analyzers-medium-stats-and-more/14081) le 23 juin 2021.
      
+<br/>
+
 L'app est réalisée avec StreamLit et Plotly :
 
 <br/>
