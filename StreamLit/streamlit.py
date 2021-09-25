@@ -315,4 +315,8 @@ if choix_page=="DashBoard StockPrices":
     st.plotly_chart(fig)
 
 if choix_page=="Simulation épidémie":
-    st.title("Simulation épidémie")
+    st.markdown('<p class="first_titre">Simulation épidémiologique</p>', unsafe_allow_html=True)
+    st.write('##')
+    st.sidebar.write('---')
+    st.sidebar.title('Options du projet :control_knobs:')
+    st.sidebar.write('##')
