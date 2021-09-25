@@ -5,3 +5,4 @@ numpy
 fastdist
 sklearn
 numba
+pip
