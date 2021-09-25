@@ -18,8 +18,9 @@ if choix_page=="Accueil":
 
 if choix_page=="DashBoard StockPrices":
 
+    st.title("DashBoard StockPrices")
     st.sidebar.write('---')
-    st.sidebar.title('Options :control_knobs:')
+    st.sidebar.title('Options du projet :control_knobs:')
     st.sidebar.write('##')
     # À SAISIR :
     ###############################################################
