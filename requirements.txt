@@ -1,2 +1,6 @@
 yfinance
 plotly
+pandas
+numpy
+fastdist
+sklearn

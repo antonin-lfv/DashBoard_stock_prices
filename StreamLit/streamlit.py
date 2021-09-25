@@ -4,6 +4,12 @@ import yfinance as yf
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit as st
+import pandas as pd
+import numpy as np
+from fastdist import fastdist
+import random as rd
+from sklearn.datasets import make_blobs
+
 
 st.set_page_config(layout="wide", )
 # streamlit run StreamLit/streamlit.py
@@ -61,7 +67,7 @@ if choix_page=="DashBoard StockPrices":
     st.markdown('<p class="first_titre">DashBoard StockPrices</p>', unsafe_allow_html=True)
     st.write('##')
     st.sidebar.write('---')
-    st.sidebar.title('Options du projet :control_knobs:')
+    st.sidebar.title('Options du projet  :control_knobs:')
     st.sidebar.write('##')
     # À SAISIR :
     ###############################################################
@@ -318,5 +324,6 @@ if choix_page=="Simulation épidémie":
     st.markdown('<p class="first_titre">Simulation épidémiologique</p>', unsafe_allow_html=True)
     st.write('##')
     st.sidebar.write('---')
-    st.sidebar.title('Options du projet :control_knobs:')
+    st.sidebar.title('Options du projet  :control_knobs:')
     st.sidebar.write('##')
+
