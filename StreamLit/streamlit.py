@@ -52,7 +52,8 @@ st.sidebar.title('Mes projets :bulb:')
 choix_page = st.sidebar.selectbox(label="Choisissez un projet", options=PAGES)
 
 if choix_page=="Accueil":
-    st.title("Bienvenue sur mon site streamlit")
+    st.markdown('<p class="first_titre">Bienvenue sur mon site Streamlit</p>', unsafe_allow_html=True)
+    st.write("Ici vous retrouverez les Dashboards liés à mes projet disponible sur mon site web https://antonin-lfv.github.io/")
 
 if choix_page=="DashBoard StockPrices":
 
