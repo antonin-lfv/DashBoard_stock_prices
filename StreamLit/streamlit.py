@@ -49,7 +49,7 @@ st.markdown("""
 # Pages
 PAGES = ["Accueil", "DashBoard StockPrices", "Simulation épidémie"]
 st.sidebar.title('Menu :bulb:')
-choix_page = st.sidebar.radio(label="", options=PAGES)
+choix_page = st.sidebar.multiselect(label="", options=PAGES)
 
 if choix_page=="Accueil":
     st.title("Bienvenue sur mon site streamlit")
