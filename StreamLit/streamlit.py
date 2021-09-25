@@ -7,6 +7,57 @@ import streamlit as st
 
 st.set_page_config(layout="wide", )
 # streamlit run StreamLit/streamlit.py
+st.markdown("""
+<style>
+.first_titre {
+    font-size:50px !important;
+    font-weight: bold;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    border: solid #F65323 6px;
+    padding: 5px;
+}
+.intro{
+    text-align: justify;
+    font-size:20px !important;
+}
+.grand_titre {
+    font-size:30px !important;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: #2782CD;
+    text-decoration-thickness: 5px;
+}
+.grand_titre_section_ML_DL {
+    font-size:40px !important;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: #2782CD;
+    text-decoration-thickness: 5px;
+}
+.section{
+    font-size:20px !important;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: #258813;
+    text-decoration-thickness: 3px;
+}
+.petite_section{
+    font-size:16px !important;
+    font-weight: bold;
+}
+.caract{
+    font-size:11px !important;
+}
+.nom_colonne_page3{
+    font-size:17px !important;
+    text-decoration: underline;
+    text-decoration-color: #000;
+    text-decoration-thickness: 1px;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # Pages
 PAGES = ["Accueil", "DashBoard StockPrices", "Simulation épidémie"]
@@ -18,7 +69,7 @@ if choix_page=="Accueil":
 
 if choix_page=="DashBoard StockPrices":
 
-    st.title("DashBoard StockPrices")
+    st.markdown('<p class="first_titre">DashBoard StockPrices</p>', unsafe_allow_html=True)
     st.sidebar.write('---')
     st.sidebar.title('Options du projet :control_knobs:')
     st.sidebar.write('##')
@@ -86,7 +137,7 @@ if choix_page=="DashBoard StockPrices":
 
     # choix fenetre
     fenetre = st.sidebar.slider('Saisir une fenêtre (jours)', min_value=2,max_value=268, value=50)
-    st.title('Cours des actions de '+slider_1+', '+slider_2+', '+slider_3+', '+slider_4+' sur une fenêtre de '+str(fenetre)+' jours\n')
+    st.subheader('Cours des actions de '+slider_1+', '+slider_2+', '+slider_3+', '+slider_4+' sur une fenêtre de '+str(fenetre)+' jours\n')
     ###############################################################
 
     vert = '#599673'
