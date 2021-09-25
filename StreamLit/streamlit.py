@@ -19,6 +19,8 @@ if choix_page=="Accueil":
 if choix_page=="DashBoard StockPrices":
 
     st.sidebar.write('---')
+    st.sidebar.write('Options :control_knobs:')
+    st.sidebar.write('##')
     # À SAISIR :
     ###############################################################
     start = "2020-05-25" # début des graphiques                   #
