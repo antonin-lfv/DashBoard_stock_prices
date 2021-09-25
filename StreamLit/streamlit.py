@@ -301,7 +301,7 @@ if choix_page=="DashBoard StockPrices":
         showlegend=False,
         font=dict(size=10),
         autosize=False,
-        width=1400, height=1000,
+        width=1600, height=1000,
         margin=dict(l=40, r=500, b=40, t=40),
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
