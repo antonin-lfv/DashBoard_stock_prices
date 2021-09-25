@@ -363,7 +363,6 @@ if choix_page=="Simulation épidémie":
 
     global list
 
-    st.subheader("La simulation prend quelques secondes à s'éxecuter")
     with st.sidebar.form(key='Parametres de la simulation'):
         nb_individu = st.slider(label="Nombre d'individus", min_value=10, max_value=2500, value=1000)
         variance_pop = st.slider(label="Éloignement des individus", min_value=0.4, max_value=10., step=0.2, value=1.)
@@ -373,14 +372,7 @@ if choix_page=="Simulation épidémie":
         d = st.slider(label="Taux de décès", min_value=0., max_value=1., value=0.05, step=0.05)
         submit_button = st.form_submit_button(label='Lancer la simulation')
 
-    if nb_individu < 10 or rayon_contamination <= 0:
-        pass
-    if infectiosite < 0 or infectiosite > 1:
-        pass
-    if p < 0 or p > 1:
-        pass
-    if d < 0 or p > 1:
-        pass
+    st.sidebar.subheader("La simulation prend quelques secondes à s'éxecuter")
 
     # création des figures
     fig = make_subplots(rows=2, cols=2, column_widths=[0.8, 0.2], row_heights=[0.5, 0.5],
