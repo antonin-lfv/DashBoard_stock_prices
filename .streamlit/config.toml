@@ -1,2 +1,8 @@
 [theme]
 backgroundColor="#FFF"
+
+[theme]
+base="light"
+
+# Primary accent color for interactive elements.
+primaryColor = '#008000'
