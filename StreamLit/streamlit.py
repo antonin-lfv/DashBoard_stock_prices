@@ -48,7 +48,7 @@ st.markdown("""
 
 # Pages
 PAGES = ["Accueil", "DashBoard StockPrices", "Simulation épidémie"]
-st.sidebar.title('Menu :bulb:')
+st.sidebar.title('Projets :bulb:')
 choix_page = st.sidebar.multiselect(label="", options=PAGES)
 
 if choix_page=="Accueil":
