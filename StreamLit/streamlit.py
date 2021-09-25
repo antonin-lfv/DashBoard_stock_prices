@@ -364,7 +364,7 @@ if choix_page=="Simulation épidémie":
     global list
 
     st.subheader("La simulation prend quelques secondes à s'éxecuter")
-    with st.form(key='Parametres de la simulation'):
+    with st.sidebar.form(key='Parametres de la simulation'):
         nb_individu = st.slider(label="Nombre d'individus", min_value=10, max_value=2500, value=1000)
         variance_pop = st.slider(label="Éloignement des individus", min_value=0.4, max_value=10., step=0.2, value=1.)
         rayon_contamination = st.slider(label="Rayon de contamination", min_value=0.3, max_value=5.9, step=0.2, value=0.5)
