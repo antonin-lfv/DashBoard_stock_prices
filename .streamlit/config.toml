@@ -1,7 +1,4 @@
 [theme]
-backgroundColor="#FFF"
-
-[theme]
 base="light"
 
 # Primary accent color for interactive elements.
