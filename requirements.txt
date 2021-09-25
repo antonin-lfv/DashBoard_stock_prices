@@ -1,8 +1,0 @@
-yfinance
-plotly
-pandas
-numpy
-fastdist
-sklearn
-numba
-pip
