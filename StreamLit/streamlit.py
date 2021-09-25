@@ -522,6 +522,14 @@ if choix_page=="Simulation épidémie":
         showlegend=False, row=2, col=1)
 
     fig.update_layout(hovermode="x")
-    fig.update_layout(title_text="simulation virus")
-    fig.update_layout(title_font_color='#EF553B')
+    fig.update_layout(
+        template='simple_white',
+        font=dict(size=10),
+        autosize=False,
+        width=1600, height=1000,
+        margin=dict(l=40, r=500, b=40, t=40),
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+    )
     st.plotly_chart(fig)
+
