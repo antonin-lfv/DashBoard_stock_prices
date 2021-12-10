@@ -57,10 +57,6 @@ sklearn
 
 <br/>
 
-Pour mettre en ligne le dashboard il faut mettre tous ces fichiers dans un repo GitHub public, et avoir un compte validé sur [streamlit](https://streamlit.io). A partir de là la configuration est faite automatiquement :
-
-![Capture d’écran 2021-06-02 à 20 13 44](https://user-images.githubusercontent.com/63207451/120531546-09888f80-c3df-11eb-81a8-93883337b424.png)
-
 <br/>
 
 <p align="center">
