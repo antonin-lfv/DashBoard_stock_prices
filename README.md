@@ -7,7 +7,7 @@
 <br/>
 
 <p align="center">
-  <a href="https://share.streamlit.io/antonin-lfv/my_streamlit_site/main/StreamLit/streamlit.py"><img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg"/></a>
+  <a href="https://share.streamlit.io/antonin-lfv/dashboard_stock_prices/main/main.py"><img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg"/></a>
   </p>
      
 <p align="center">
